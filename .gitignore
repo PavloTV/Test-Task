@@ -1,2 +1,7 @@
-credentials/ssh/
+credentials/
 *.pem
+id_rsa
+id_rsa.pub
+*.tfvars
+*.tfstate
+*.tfstate.backup
