@@ -34,7 +34,7 @@ resource "aws_instance" "master" {
   }
 
   tags = { 
-    Name = "${var.developer}-master"
+    Name = "${var.developer}-master-instance"
   }
 
 }
@@ -75,7 +75,7 @@ resource "aws_instance" "slave" {
   }
 
   tags = { 
-    Name = "${var.developer}-slave"
+    Name = "${var.developer}-slave-instance"
   }
 
 }
