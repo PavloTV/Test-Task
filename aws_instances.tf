@@ -29,6 +29,10 @@ resource "aws_instance" "master" {
     ]
   }
 
+  volume_tags = {
+    Name = "${var.developer}-master-volume"
+  }
+
   tags = { 
     Name = "${var.developer}-master"
   }
@@ -64,6 +68,10 @@ resource "aws_instance" "slave" {
       "sudo scp -o StrictHostKeyChecking=no -o NoHostAuthenticationForLocalhost=yes -o UserKnownHostsFile=/dev/null -i /home/ubuntu/id_rsa.pem ubuntu@${aws_instance.master.private_ip}:/home/ubuntu/token .",
       "sudo docker swarm join --token $(cat /home/ubuntu/token) ${aws_instance.master.private_ip}:2377"
     ]
+  }
+
+  volume_tags = {
+    Name = "${var.developer}-slave-volume"
   }
 
   tags = { 
